@@ -1,0 +1,120 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+    <title>Shop database</title>
+</head>
+
+<body>
+
+<h4 style="color:red">  <td th:text="${error_message}"> </td>  </h4>
+
+<h4>Get price list:</h4>
+<form th:object="${user}" method="GET" action="/get-products">
+        <table>
+            <tr>
+                <td>
+                    <label>User Id:</label>
+                </td>
+                <td>
+                    <input type="text" th:field="*{id}"/>
+                </td>
+            </tr>
+        </table>
+    <input type="submit" value="Get">
+</form>
+
+<h4>Add user:</h4>
+<form th:object="${user}" method="POST" action="/add-user">
+    <table>
+        <tr>
+            <td>
+                <label>Id:</label>
+            </td>
+            <td>
+                <input type="text" th:field="*{id}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Name:</label>
+            </td>
+            <td>
+                <input type="text" th:field="*{name}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Default currency:</label>
+            </td>
+            <td>
+                <select th:name="user_cur">
+                    <option>RUB</option>
+                    <option>USD</option>
+                    <option>EUR</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Submit">
+</form>
+
+
+<h4>Add item:</h4>
+<form th:object="${product}" method="POST" action="/add-product">
+    <table>
+        <tr>
+            <td>
+                <label>Item id:</label>
+            </td>
+            <td>
+                <input type="text" th:field="*{id}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Item name:</label>
+            </td>
+            <td>
+                <input type="text" th:field="*{name}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>RUB price:</label>
+            </td>
+            <td>
+                <label>USD price:</label>
+            </td>
+            <td>
+                <label>EUR price:</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" th:field="*{priceRUB}"/>
+            </td>
+            <td>
+                <input type="text" th:field="*{priceUSD}"/>
+            </td>
+            <td>
+                <input type="text" th:field="*{priceEUR}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Item default currency:</label>
+            </td>
+            <td>
+                <select th:name="item_cur">
+                    <option>RUB</option>
+                    <option>USD</option>
+                    <option>EUR</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
