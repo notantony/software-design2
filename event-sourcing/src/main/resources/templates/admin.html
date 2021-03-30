@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <title>Gate</title>
+</head>
+<body>
+
+<h4 style="color:black">  <td th:text="${message}"> </td>  </h4>
+<h4 style="color:red">  <td th:text="${error}"> </td>  </h4>
+<h4 style="color:green">  <td th:text="${success}"> </td>  </h4>
+
+<h4>Enter:</h4>
+<form th:object="${user_id}" method="POST" action="/enter">
+    <table>
+        <tr>
+            <td>
+                <label>User Id:</label>
+            </td>
+            <td>
+                <input type="text" th:field="*{value}"/>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Enter">
+</form>
+
+</body>
+</html>
